@@ -31,8 +31,14 @@ export default new NativeFunction({
             type: ArgType.String,
             required: true,
         },
+        {
+            name: "reason",
+            description: "The reason for editing the role icon",
+            rest: false,
+            type: ArgType.String,
+        },
     ],
-    async execute(ctx, [, role, url]) {
-        return this.success(!!(await role.setIcon(url).catch(ctx.noop)))
+    async execute(ctx, [, role, url, reason]) {
+        return this.success(!!(await role.setIcon(url, reason || undefined).catch(ctx.noop)))
     },
 })
