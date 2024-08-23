@@ -15,15 +15,15 @@ exports.default = new structures_1.NativeFunction({
     output: (0, array_1.default)(discord_js_1.MessageFlags),
     args: [
         {
-            name: "guild ID",
-            description: "The guild id to return the message from",
+            name: "channel ID",
+            description: "The channel to get the message from",
             rest: false,
             type: structures_1.ArgType.Guild,
             required: true,
         },
         {
             name: "message ID",
-            description: "The message id return its flags",
+            description: "The message to return its flags",
             rest: false,
             type: structures_1.ArgType.Message,
             pointer: 0,

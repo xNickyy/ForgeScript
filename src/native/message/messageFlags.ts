@@ -11,15 +11,15 @@ export default new NativeFunction({
     output: array(MessageFlags),
     args: [
         {
-            name: "guild ID",
-            description: "The guild id to return the message from",
+            name: "channel ID",
+            description: "The channel to get the message from",
             rest: false,
             type: ArgType.Guild,
             required: true,
         },
         {
             name: "message ID",
-            description: "The message id return its flags",
+            description: "The message to return its flags",
             rest: false,
             type: ArgType.Message,
             pointer: 0,
