@@ -23,13 +23,12 @@ exports.default = new structures_1.NativeFunction({
             name: "category ID",
             description: "The category to set",
             rest: false,
-            required: true,
             type: structures_1.ArgType.Channel,
             check: (i) => i.type === discord_js_1.ChannelType.GuildCategory
         },
     ],
     async execute(ctx, [channel, parent]) {
-        return this.success(!!(await channel.setParent(parent).catch(ctx.noop)));
+        return this.success(!!(await channel.setParent(parent || null).catch(ctx.noop)));
     },
 });
 //# sourceMappingURL=setChannelCategory.js.map

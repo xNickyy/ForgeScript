@@ -23,12 +23,11 @@ export default new NativeFunction({
             name: "category ID",
             description: "The category to set",
             rest: false,
-            required: true,
             type: ArgType.Channel,
             check: (i: BaseChannel) => i.type === ChannelType.GuildCategory
         },
     ],
     async execute(ctx, [channel, parent]) {
-        return this.success(!!(await (channel as TextChannel).setParent(parent as CategoryChannel).catch(ctx.noop)))
+        return this.success(!!(await (channel as TextChannel).setParent(parent as CategoryChannel || null).catch(ctx.noop)))
     },
 })
