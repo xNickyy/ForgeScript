@@ -18,7 +18,7 @@ exports.default = new structures_1.NativeFunction({
             name: "channel ID",
             description: "The channel to get the message from",
             rest: false,
-            type: structures_1.ArgType.Guild,
+            type: structures_1.ArgType.Channel,
             required: true,
         },
         {

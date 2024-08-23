@@ -14,7 +14,7 @@ export default new NativeFunction({
             name: "channel ID",
             description: "The channel to get the message from",
             rest: false,
-            type: ArgType.Guild,
+            type: ArgType.Channel,
             required: true,
         },
         {

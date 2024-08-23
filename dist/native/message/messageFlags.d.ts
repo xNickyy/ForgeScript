@@ -3,7 +3,7 @@ declare const _default: NativeFunction<[{
     name: string;
     description: string;
     rest: false;
-    type: ArgType.Guild;
+    type: ArgType.Channel;
     required: true;
 }, {
     name: string;
