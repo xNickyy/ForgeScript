@@ -7,8 +7,8 @@ exports.default = new structures_1.NativeFunction({
     description: "Returns current year",
     unwrap: true,
     output: structures_1.ArgType.Number,
-    execute: function () {
-        return this.success(new Date().getFullYear());
+    execute: async function (ctx) {
+        return this.success(new Date(new Date().toLocaleString("en-US", { timeZone: ctx.timezone })).getFullYear());
     }
 });
 //# sourceMappingURL=year.js.map

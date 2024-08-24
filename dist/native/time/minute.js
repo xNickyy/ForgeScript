@@ -4,7 +4,7 @@ const structures_1 = require("../../structures");
 exports.default = new structures_1.NativeFunction({
     name: "$minute",
     version: "1.2.0",
-    description: "Returns current UTC minute",
+    description: "Returns current minute",
     unwrap: true,
     output: structures_1.ArgType.Number,
     execute: async function (ctx) {

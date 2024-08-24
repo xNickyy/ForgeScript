@@ -6,7 +6,7 @@ export default new NativeFunction({
     description: "Returns current month",
     unwrap: true,
     output: ArgType.Number,
-    execute: function() {
-        return this.success(new Date().getMonth() + 1)
+    execute: async function(ctx) {
+        return this.success(new Date(new Date().toLocaleString("en-US", { timeZone: ctx.timezone })).getMonth() + 1)
     }
 })

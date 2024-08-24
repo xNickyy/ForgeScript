@@ -36,7 +36,7 @@ exports.default = new structures_1.NativeFunction({
         },
     ],
     execute(ctx, [type]) {
-        const date = new Date();
+        const date = new Date(new Date().toLocaleString("en-US", { timeZone: ctx.timezone }));
         return this.success(type === CalendarType.Day
             ? getDayOfYear(date)
             : type === CalendarType.Week

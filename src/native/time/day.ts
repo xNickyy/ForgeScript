@@ -6,7 +6,7 @@ export default new NativeFunction({
     description: "Returns current day",
     unwrap: true,
     output: ArgType.Number,
-    execute: function() {
-        return this.success(new Date().getDay())
+    execute: async function(ctx) {
+        return this.success(new Date(new Date().toLocaleString("en-US", { timeZone: ctx.timezone })).getDay())
     }
 })
