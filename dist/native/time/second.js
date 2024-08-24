@@ -4,8 +4,8 @@ exports.SecondType = void 0;
 const structures_1 = require("../../structures");
 var SecondType;
 (function (SecondType) {
-    SecondType["numeric"] = "numeric";
-    SecondType["2-digit"] = "2-digit";
+    SecondType["Numeric"] = "numeric";
+    SecondType["2-Digit"] = "2-digit";
 })(SecondType || (exports.SecondType = SecondType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$second",

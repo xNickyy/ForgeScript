@@ -4,11 +4,11 @@ exports.DayType = void 0;
 const structures_1 = require("../../structures");
 var DayType;
 (function (DayType) {
-    DayType["numeric"] = "numeric";
-    DayType["2-digit"] = "2-digit";
-    DayType["long"] = "long";
-    DayType["short"] = "short";
-    DayType["narrow"] = "narrow";
+    DayType["Numeric"] = "numeric";
+    DayType["2-Digit"] = "2-digit";
+    DayType["Long"] = "long";
+    DayType["Short"] = "short";
+    DayType["Narrow"] = "narrow";
 })(DayType || (exports.DayType = DayType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$day",

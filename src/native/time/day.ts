@@ -2,11 +2,11 @@ import { includes } from "lodash"
 import { ArgType, NativeFunction, Return } from "../../structures"
 
 export enum DayType {
-    numeric = "numeric",
-    "2-digit" = "2-digit",
-    long = "long",
-    short = "short",
-    narrow = "narrow"
+    Numeric = "numeric",
+    "2-Digit" = "2-digit",
+    Long = "long",
+    Short = "short",
+    Narrow = "narrow"
 }
 
 export default new NativeFunction({

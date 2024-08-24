@@ -1,8 +1,8 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
 export enum YearType {
-    numeric = "numeric",
-    "2-digit" = "2-digit"
+    Numeric = "numeric",
+    "2-Digit" = "2-digit"
 }
 
 export default new NativeFunction({

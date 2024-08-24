@@ -1,7 +1,7 @@
 import { ArgType, NativeFunction } from "../../structures";
 export declare enum MinuteType {
-    numeric = "numeric",
-    "2-digit" = "2-digit"
+    Numeric = "numeric",
+    "2-Digit" = "2-digit"
 }
 declare const _default: NativeFunction<[{
     name: string;

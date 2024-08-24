@@ -4,11 +4,11 @@ exports.MonthType = void 0;
 const structures_1 = require("../../structures");
 var MonthType;
 (function (MonthType) {
-    MonthType["numeric"] = "numeric";
-    MonthType["2-digit"] = "2-digit";
-    MonthType["long"] = "long";
-    MonthType["short"] = "short";
-    MonthType["narrow"] = "narrow";
+    MonthType["Numeric"] = "numeric";
+    MonthType["2-Digit"] = "2-digit";
+    MonthType["Long"] = "long";
+    MonthType["Short"] = "short";
+    MonthType["Narrow"] = "narrow";
 })(MonthType || (exports.MonthType = MonthType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$month",
