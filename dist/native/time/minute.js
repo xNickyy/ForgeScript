@@ -7,8 +7,8 @@ exports.default = new structures_1.NativeFunction({
     description: "Returns current UTC minute",
     unwrap: true,
     output: structures_1.ArgType.Number,
-    execute: function () {
-        return this.success(new Date().getMinutes());
+    execute: async function (ctx) {
+        return this.success(new Date(new Date().toLocaleString("en-US", { timeZone: ctx.timezone })).getMinutes());
     }
 });
 //# sourceMappingURL=minute.js.map

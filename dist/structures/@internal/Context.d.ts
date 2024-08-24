@@ -43,6 +43,7 @@ export declare class Context {
     executionTimestamp: number;
     http: Partial<IHttpOptions>;
     container: Container;
+    timezone: string;
     constructor(runtime: IRunnable);
     get client(): import("../..").ForgeClient;
     set obj(o: Sendable);

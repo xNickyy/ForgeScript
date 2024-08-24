@@ -79,6 +79,8 @@ export class Context {
 
     public container: Container
 
+    public timezone: string = "UTC"
+
     // eslint-disable-next-line no-unused-vars
     public constructor(public readonly runtime: IRunnable) {
         if (runtime.environment) this.#environment = runtime.environment
