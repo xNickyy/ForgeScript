@@ -34,7 +34,9 @@ exports.default = new structures_1.NativeFunction({
     ],
     async execute(ctx, [url, msg, content]) {
         const webhook = new discord_js_1.WebhookClient({ url });
-        const edit = await webhook.editMessage(msg, content).catch(ctx.noop);
+        ctx.container.edit = true;
+        ctx.container.content = content;
+        const edit = await ctx.container.send(webhook, msg).catch(ctx.noop);
         return this.success(!!edit);
     },
 });

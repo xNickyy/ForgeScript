@@ -73,13 +73,12 @@ export class Context {
 
     executionTimestamp!: number
     http: Partial<IHttpOptions> = {}
+    timezone: string = "UTC"
 
     #keywords: Record<string, unknown> = {}
     #environment: Record<string, unknown> = {}
 
     public container: Container
-
-    public timezone: string = "UTC"
 
     // eslint-disable-next-line no-unused-vars
     public constructor(public readonly runtime: IRunnable) {

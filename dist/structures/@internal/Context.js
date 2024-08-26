@@ -19,10 +19,10 @@ class Context {
     #cache = {};
     executionTimestamp;
     http = {};
+    timezone = "UTC";
     #keywords = {};
     #environment = {};
     container;
-    timezone = "UTC";
     // eslint-disable-next-line no-unused-vars
     constructor(runtime) {
         this.runtime = runtime;
