@@ -2,7 +2,7 @@ import { ArgType, NativeFunction, Return } from "../../structures"
 
 export enum MonthType {
     Numeric = "numeric",
-    "2-Digit" = "2-digit",
+    TwoDigit = "2-digit",
     Long = "long",
     Short = "short",
     Narrow = "narrow"

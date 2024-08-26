@@ -5,7 +5,7 @@ const structures_1 = require("../../structures");
 var MonthType;
 (function (MonthType) {
     MonthType["Numeric"] = "numeric";
-    MonthType["2-Digit"] = "2-digit";
+    MonthType["TwoDigit"] = "2-digit";
     MonthType["Long"] = "long";
     MonthType["Short"] = "short";
     MonthType["Narrow"] = "narrow";

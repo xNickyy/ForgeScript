@@ -5,7 +5,7 @@ const structures_1 = require("../../structures");
 var MinuteType;
 (function (MinuteType) {
     MinuteType["Numeric"] = "numeric";
-    MinuteType["2-Digit"] = "2-digit";
+    MinuteType["TwoDigit"] = "2-digit";
 })(MinuteType || (exports.MinuteType = MinuteType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$minute",

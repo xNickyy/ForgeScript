@@ -1,7 +1,7 @@
 import { ArgType, NativeFunction } from "../../structures";
 export declare enum SecondType {
     Numeric = "numeric",
-    "2-Digit" = "2-digit"
+    TwoDigit = "2-digit"
 }
 declare const _default: NativeFunction<[{
     name: string;

@@ -1,7 +1,7 @@
 import { ArgType, NativeFunction } from "../../structures";
 export declare enum DayType {
     Numeric = "numeric",
-    "2-Digit" = "2-digit",
+    TwoDigit = "2-digit",
     Long = "long",
     Short = "short",
     Narrow = "narrow"

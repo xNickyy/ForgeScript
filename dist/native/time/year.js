@@ -5,7 +5,7 @@ const structures_1 = require("../../structures");
 var YearType;
 (function (YearType) {
     YearType["Numeric"] = "numeric";
-    YearType["2-Digit"] = "2-digit";
+    YearType["TwoDigit"] = "2-digit";
 })(YearType || (exports.YearType = YearType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$year",

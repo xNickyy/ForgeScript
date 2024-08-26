@@ -5,7 +5,7 @@ const structures_1 = require("../../structures");
 var HourType;
 (function (HourType) {
     HourType["Numeric"] = "numeric";
-    HourType["2-Digit"] = "2-digit";
+    HourType["TwoDigit"] = "2-digit";
 })(HourType || (exports.HourType = HourType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$hour",

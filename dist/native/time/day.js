@@ -5,7 +5,7 @@ const structures_1 = require("../../structures");
 var DayType;
 (function (DayType) {
     DayType["Numeric"] = "numeric";
-    DayType["2-Digit"] = "2-digit";
+    DayType["TwoDigit"] = "2-digit";
     DayType["Long"] = "long";
     DayType["Short"] = "short";
     DayType["Narrow"] = "narrow";
