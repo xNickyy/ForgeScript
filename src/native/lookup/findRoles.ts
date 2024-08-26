@@ -51,7 +51,7 @@ export default new NativeFunction({
         limit ??= 10
         prop ??= RoleProperty.id
 
-        const search = guild.roles.cache.filter(role => (role.id.includes(query) || role.name.includes(query))).toJSON().slice(0, limit + 1)
+        const search = guild.roles.cache.filter(role => (role.id.includes(query) || role.name.includes(query))).toJSON().slice(0, limit)
 
         return this.success(search?.map((x) => RoleProperties[prop!](x)).join(sep ?? ", "))
     },

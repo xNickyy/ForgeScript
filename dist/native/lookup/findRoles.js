@@ -54,7 +54,7 @@ exports.default = new structures_1.NativeFunction({
         query = query.replace(exports.RoleMentionCharRegex, "");
         limit ??= 10;
         prop ??= role_1.RoleProperty.id;
-        const search = guild.roles.cache.filter(role => (role.id.includes(query) || role.name.includes(query))).toJSON().slice(0, limit + 1);
+        const search = guild.roles.cache.filter(role => (role.id.includes(query) || role.name.includes(query))).toJSON().slice(0, limit);
         return this.success(search?.map((x) => role_1.RoleProperties[prop](x)).join(sep ?? ", "));
     },
 });
