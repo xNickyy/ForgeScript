@@ -22,6 +22,6 @@ export default new NativeFunction({
     ],
     output: ArgType.Number,
     execute: async function(ctx, [format]) {
-        return this.success(new Date().toLocaleString("en-US", { year: format || "numeric", timeZone: ctx.timezone }))
+        return this.success(new Date().toLocaleString("en-US", { year: format || "numeric", timeZone: ctx.timezone, calendar: ctx.calendar }))
     }
 })

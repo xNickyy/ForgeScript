@@ -1,4 +1,4 @@
-import { WebhookClient, Message } from "discord.js"
+import { WebhookClient } from "discord.js"
 import { ArgType, NativeFunction, Return } from "../../structures"
 
 export default new NativeFunction({
@@ -33,10 +33,7 @@ export default new NativeFunction({
     ],
     async execute(ctx, [ url, msg, content ]) {
         const webhook = new WebhookClient({ url })
-
-        ctx.container.edit = true
-        ctx.container.content = content
-        const edit = await ctx.container.send<Message<true>>(webhook, msg).catch(ctx.noop)
+        const edit = await webhook.editMessage(msg, content).catch(ctx.noop)
 
         return this.success(!!edit)
     },

@@ -26,7 +26,7 @@ export default new NativeFunction({
     ],
     output: ArgType.Number,
     execute: async function(ctx, [format]) {
-        const options: Intl.DateTimeFormatOptions = { timeZone: ctx.timezone }
+        const options: Intl.DateTimeFormatOptions = { timeZone: ctx.timezone, calendar: ctx.calendar }
 
         if (format === "numeric" || format === "2-digit" || !format) {
             options.day = format || "numeric"

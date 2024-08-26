@@ -25,6 +25,6 @@ export default new NativeFunction({
     ],
     output: ArgType.Unknown,
     execute: async function(ctx, [format]) {
-        return this.success(new Date().toLocaleString("en-US", { month: format || "numeric", timeZone: ctx.timezone }))
+        return this.success(new Date().toLocaleString("en-US", { month: format || "numeric", timeZone: ctx.timezone, calendar: ctx.calendar }))
     }
 })

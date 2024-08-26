@@ -27,7 +27,7 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: structures_1.ArgType.Number,
     execute: async function (ctx, [format]) {
-        const options = { timeZone: ctx.timezone };
+        const options = { timeZone: ctx.timezone, calendar: ctx.calendar };
         if (format === "numeric" || format === "2-digit" || !format) {
             options.day = format || "numeric";
         }

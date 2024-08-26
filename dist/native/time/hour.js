@@ -24,7 +24,8 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: structures_1.ArgType.Number,
     execute: async function (ctx, [format]) {
-        return this.success(new Date().toLocaleString("en-US", { hour: format || "numeric", hour12: false, timeZone: ctx.timezone }));
+        const hour = new Date().toLocaleString("en-US", { hour: format || "numeric", hour12: false, timeZone: ctx.timezone, calendar: ctx.calendar });
+        return this.success(format === HourType.Numeric ? parseInt(hour, 10) : hour);
     }
 });
 //# sourceMappingURL=hour.js.map

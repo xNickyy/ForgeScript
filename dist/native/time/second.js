@@ -24,7 +24,7 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: structures_1.ArgType.Number,
     execute: async function (ctx, [format]) {
-        return this.success(new Date().toLocaleString("en-US", { second: format || "numeric", timeZone: ctx.timezone }));
+        return this.success(new Date().toLocaleString("en-US", { second: format || "numeric", timeZone: ctx.timezone, calendar: ctx.calendar }));
     }
 });
 //# sourceMappingURL=second.js.map

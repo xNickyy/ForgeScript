@@ -44,6 +44,27 @@ export interface IHttpOptions {
     method: string
 }
 
+export enum CalendarType {
+    Buddhist = "buddhist",
+    Chinese = "chinese",
+    Coptic = "coptic",
+    Dangi = "dangi",
+    Ethioaa = "ethioaa",
+    Ethiopic = "ethiopic",
+    Gregory = "gregory",
+    Hebrew = "hebrew",
+    Indian = "indian",
+    Islamic = "islamic",
+    "Islamic-Umalqura" = "islamic-umalqura",
+    "Islamic-Tbla" = "islamic-tbla",
+    "Islamic-Civil" = "islamic-civil",
+    "Islamic-Rgsa" = "islamic-rgsa",
+    Iso8601 = "iso8601",
+    Japanese = "japanese",
+    Persian = "persian",
+    Roc = "roc"
+}
+
 export type ClassType = new (...args: any[]) => any
 export type ClassInstance<T> = T extends new (...args: any[]) => infer T ? T : never
 export type FilterProperties<T> = {
@@ -74,6 +95,7 @@ export class Context {
     executionTimestamp!: number
     http: Partial<IHttpOptions> = {}
     timezone: string = "UTC"
+    calendar?: CalendarType
 
     #keywords: Record<string, unknown> = {}
     #environment: Record<string, unknown> = {}

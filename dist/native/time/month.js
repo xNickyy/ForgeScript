@@ -27,7 +27,7 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: structures_1.ArgType.Unknown,
     execute: async function (ctx, [format]) {
-        return this.success(new Date().toLocaleString("en-US", { month: format || "numeric", timeZone: ctx.timezone }));
+        return this.success(new Date().toLocaleString("en-US", { month: format || "numeric", timeZone: ctx.timezone, calendar: ctx.calendar }));
     }
 });
 //# sourceMappingURL=month.js.map

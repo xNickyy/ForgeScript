@@ -22,6 +22,7 @@ export default new NativeFunction({
     ],
     output: ArgType.Number,
     execute: async function(ctx, [format]) {
-        return this.success(new Date().toLocaleString("en-US", { hour: format || "numeric", hour12: false, timeZone: ctx.timezone }))
+        const hour = new Date().toLocaleString("en-US", { hour: format || "numeric", hour12: false, timeZone: ctx.timezone, calendar: ctx.calendar })
+        return this.success(format === HourType.Numeric ? parseInt(hour, 10) : hour)
     }
 })
