@@ -4,6 +4,12 @@ import { RoleProperties, RoleProperty } from "../../properties/role"
 
 export const RoleMentionCharRegex = /[@<>&]/g
 
+export enum SearchMethodType {
+    StartsWith,
+    EndsWith,
+    Includes
+}
+
 export default new NativeFunction({
     name: "$findRoles",
     version: "1.5.0",
@@ -44,14 +50,30 @@ export default new NativeFunction({
             rest: false,
             type: ArgType.String,
         },
+        {
+            name: "method",
+            description: "The method to use for searching",
+            rest: false,
+            type: ArgType.Enum,
+            enum: SearchMethodType
+        },
     ],
     unwrap: true,
-    execute(ctx, [ guild, query, limit, prop, sep ]) {
+    execute(ctx, [ guild, query, limit, prop, sep, method ]) {
         query = query.replace(RoleMentionCharRegex, "")
-        limit ??= 10
-        prop ??= RoleProperty.id
+        limit ||= 10
+        prop ||= RoleProperty.id
 
-        const search = guild.roles.cache.filter(role => (role.id.includes(query) || role.name.includes(query))).toJSON().slice(0, limit)
+        const search = guild.roles.cache.filter(role => { 
+            switch(method) {
+                case SearchMethodType.StartsWith:
+                    return (role.id.startsWith(query) || role.name.startsWith(query))
+                case SearchMethodType.EndsWith:
+                    return (role.id.endsWith(query) || role.name.endsWith(query))
+                default:
+                    return (role.id.includes(query) || role.name.includes(query))
+            }
+        }).toJSON().slice(0, limit)
 
         return this.success(search?.map((x) => RoleProperties[prop!](x)).join(sep ?? ", "))
     },

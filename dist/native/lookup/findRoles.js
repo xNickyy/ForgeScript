@@ -3,11 +3,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoleMentionCharRegex = void 0;
+exports.SearchMethodType = exports.RoleMentionCharRegex = void 0;
 const structures_1 = require("../../structures");
 const array_1 = __importDefault(require("../../functions/array"));
 const role_1 = require("../../properties/role");
 exports.RoleMentionCharRegex = /[@<>&]/g;
+var SearchMethodType;
+(function (SearchMethodType) {
+    SearchMethodType[SearchMethodType["StartsWith"] = 0] = "StartsWith";
+    SearchMethodType[SearchMethodType["EndsWith"] = 1] = "EndsWith";
+    SearchMethodType[SearchMethodType["Includes"] = 2] = "Includes";
+})(SearchMethodType || (exports.SearchMethodType = SearchMethodType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$findRoles",
     version: "1.5.0",
@@ -48,13 +54,29 @@ exports.default = new structures_1.NativeFunction({
             rest: false,
             type: structures_1.ArgType.String,
         },
+        {
+            name: "method",
+            description: "The method to use for searching",
+            rest: false,
+            type: structures_1.ArgType.Enum,
+            enum: SearchMethodType
+        },
     ],
     unwrap: true,
-    execute(ctx, [guild, query, limit, prop, sep]) {
+    execute(ctx, [guild, query, limit, prop, sep, method]) {
         query = query.replace(exports.RoleMentionCharRegex, "");
-        limit ??= 10;
-        prop ??= role_1.RoleProperty.id;
-        const search = guild.roles.cache.filter(role => (role.id.includes(query) || role.name.includes(query))).toJSON().slice(0, limit);
+        limit ||= 10;
+        prop ||= role_1.RoleProperty.id;
+        const search = guild.roles.cache.filter(role => {
+            switch (method) {
+                case SearchMethodType.StartsWith:
+                    return (role.id.startsWith(query) || role.name.startsWith(query));
+                case SearchMethodType.EndsWith:
+                    return (role.id.endsWith(query) || role.name.endsWith(query));
+                default:
+                    return (role.id.includes(query) || role.name.includes(query));
+            }
+        }).toJSON().slice(0, limit);
         return this.success(search?.map((x) => role_1.RoleProperties[prop](x)).join(sep ?? ", "));
     },
 });
