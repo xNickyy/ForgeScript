@@ -10,7 +10,7 @@ export default new NativeFunction({
     args: [
         {
             name: "guild ID",
-            description: "The guild to return the roles of",
+            description: "The guild to return the channels of",
             rest: false,
             type: ArgType.Guild,
             required: true,

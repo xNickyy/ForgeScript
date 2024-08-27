@@ -14,7 +14,7 @@ exports.default = new structures_1.NativeFunction({
     args: [
         {
             name: "guild ID",
-            description: "The guild to return the roles of",
+            description: "The guild to return the channels of",
             rest: false,
             type: structures_1.ArgType.Guild,
             required: true,
