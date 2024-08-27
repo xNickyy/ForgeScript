@@ -17,8 +17,8 @@ export default new NativeFunction({
     ],
     output: array<ArgType.String>(),
     async execute(ctx, [guild, query, limit, en, sep]) {
-        limit ??= 10
-        en ??= MemberProperty.id
+        limit ||= 10
+        en ||= MemberProperty.id
 
         const search = await guild.members
             .search({

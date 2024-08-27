@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchMethodType = void 0;
 const structures_1 = require("../../structures");
 const array_1 = __importDefault(require("../../functions/array"));
-const role_1 = require("../../properties/role");
-const findRole_1 = require("./findRole");
+const channel_1 = require("../../properties/channel");
+const findGuildChannel_1 = require("./findGuildChannel");
 var SearchMethodType;
 (function (SearchMethodType) {
     SearchMethodType[SearchMethodType["startsWith"] = 0] = "startsWith";
@@ -15,22 +15,22 @@ var SearchMethodType;
     SearchMethodType[SearchMethodType["includes"] = 2] = "includes";
 })(SearchMethodType || (exports.SearchMethodType = SearchMethodType = {}));
 exports.default = new structures_1.NativeFunction({
-    name: "$findRoles",
+    name: "$findChannels",
     version: "1.5.0",
-    description: "Finds roles of a guild using a query",
+    description: "Finds channels of a guild using a query",
     brackets: true,
     output: (0, array_1.default)(),
     args: [
         {
             name: "guild ID",
-            description: "The guild to find the roles on",
+            description: "The guild to find the channels on",
             type: structures_1.ArgType.Guild,
             rest: false,
             required: true,
         },
         {
             name: "query",
-            description: "The id, mention or role name to find",
+            description: "The id, mention or channel name to find",
             rest: false,
             type: structures_1.ArgType.String,
             required: true,
@@ -46,7 +46,7 @@ exports.default = new structures_1.NativeFunction({
             description: "The property to return",
             rest: false,
             type: structures_1.ArgType.Enum,
-            enum: role_1.RoleProperty
+            enum: channel_1.ChannelProperty
         },
         {
             name: "separator",
@@ -64,20 +64,20 @@ exports.default = new structures_1.NativeFunction({
     ],
     unwrap: true,
     execute(ctx, [guild, query, limit, prop, sep, method]) {
-        query = query.replace(findRole_1.RoleMentionCharRegex, "");
+        query = query.replace(findGuildChannel_1.ChannelMentionCharRegex, "");
         limit ||= 10;
-        prop ||= role_1.RoleProperty.id;
-        const search = guild.roles.cache.filter(role => {
+        prop ||= channel_1.ChannelProperty.id;
+        const search = guild.channels.cache.filter(channel => {
             switch (method) {
                 case SearchMethodType.startsWith:
-                    return (role.id.startsWith(query) || role.name.startsWith(query));
+                    return (channel.id.startsWith(query) || channel.name.startsWith(query));
                 case SearchMethodType.endsWith:
-                    return (role.id.endsWith(query) || role.name.endsWith(query));
+                    return (channel.id.endsWith(query) || channel.name.endsWith(query));
                 default:
-                    return (role.id.includes(query) || role.name.includes(query));
+                    return (channel.id.includes(query) || channel.name.includes(query));
             }
         }).toJSON().slice(0, limit);
-        return this.success(search?.map((x) => role_1.RoleProperties[prop](x)).join(sep ?? ", "));
+        return this.success(search?.map((x) => channel_1.ChannelProperties[prop](x)).join(sep ?? ", "));
     },
 });
-//# sourceMappingURL=findRoles.js.map
+//# sourceMappingURL=findChannels.js.map

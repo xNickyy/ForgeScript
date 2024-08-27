@@ -1,5 +1,5 @@
 import { ArgType, NativeFunction } from "../../structures";
-import { RoleProperty } from "../../properties/role";
+import { ChannelProperty } from "../../properties/channel";
 export declare enum SearchMethodType {
     startsWith = 0,
     endsWith = 1,
@@ -27,7 +27,7 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Enum;
-    enum: typeof RoleProperty;
+    enum: typeof ChannelProperty;
 }, {
     name: string;
     description: string;
@@ -41,4 +41,4 @@ declare const _default: NativeFunction<[{
     enum: typeof SearchMethodType;
 }], true>;
 export default _default;
-//# sourceMappingURL=findRoles.d.ts.map
+//# sourceMappingURL=findChannels.d.ts.map

@@ -21,8 +21,8 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: (0, array_1.default)(),
     async execute(ctx, [guild, query, limit, en, sep]) {
-        limit ??= 10;
-        en ??= member_1.MemberProperty.id;
+        limit ||= 10;
+        en ||= member_1.MemberProperty.id;
         const search = await guild.members
             .search({
             limit,
