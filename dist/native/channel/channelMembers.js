@@ -11,7 +11,7 @@ exports.default = new structures_1.NativeFunction({
     description: "Returns the members of a channel",
     unwrap: true,
     output: (0, array_1.default)(),
-    brackets: true,
+    brackets: false,
     args: [
         {
             name: "channel ID",
@@ -20,10 +20,16 @@ exports.default = new structures_1.NativeFunction({
             required: true,
             type: structures_1.ArgType.Channel,
         },
+        {
+            name: "separator",
+            description: "The separator to use for each member",
+            rest: false,
+            type: structures_1.ArgType.String,
+        },
     ],
-    execute(ctx, [ch]) {
+    execute(ctx, [ch, sep]) {
         const chan = ch ?? ctx.channel;
-        return this.successJSON("members" in chan ? chan.members : null);
+        return this.successJSON("members" in chan ? chan.members?.map(member => member.id).join(sep ?? ", ") : null);
     },
 });
 //# sourceMappingURL=channelMembers.js.map

@@ -19,7 +19,6 @@ export default new NativeFunction({
             name: "separator",
             description: "The separator to use for each channel",
             rest: false,
-            required: true,
             type: ArgType.String,
         },
     ],

@@ -1,5 +1,6 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 import array from "../../functions/array"
+import { Collection, GuildMember } from "discord.js"
 
 export default new NativeFunction({
     name: "$channelMembers",
@@ -7,7 +8,7 @@ export default new NativeFunction({
     description: "Returns the members of a channel",
     unwrap: true,
     output: array<ArgType.String>(),
-    brackets: true,
+    brackets: false,
     args: [
         {
             name: "channel ID",
@@ -16,9 +17,15 @@ export default new NativeFunction({
             required: true,
             type: ArgType.Channel,
         },
+        {
+            name: "separator",
+            description: "The separator to use for each member",
+            rest: false,
+            type: ArgType.String,
+        },
     ],
-    execute(ctx, [ch]) {
+    execute(ctx, [ch, sep]) {
         const chan = ch ?? ctx.channel
-        return this.successJSON("members" in chan ? chan.members : null)
+        return this.successJSON("members" in chan ? (chan.members as Collection<string, GuildMember>)?.map(member => member.id).join(sep ?? ", ") : null)
     },
 })

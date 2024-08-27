@@ -23,7 +23,6 @@ exports.default = new structures_1.NativeFunction({
             name: "separator",
             description: "The separator to use for each channel",
             rest: false,
-            required: true,
             type: structures_1.ArgType.String,
         },
     ],
