@@ -10,6 +10,7 @@ const FunctionManager_1 = require("./FunctionManager");
 class ForgeFunctionManager {
     client;
     functions = new Map();
+    paths = new Array();
     constructor(client) {
         this.client = client;
     }
@@ -44,6 +45,13 @@ class ForgeFunctionManager {
             loader.push(req);
         }
         this.add(loader);
+    }
+    refresh() {
+        this.functions.clear();
+        for (const path of this.paths) {
+            this.load(path);
+        }
+        this.populate();
     }
 }
 exports.ForgeFunctionManager = ForgeFunctionManager;

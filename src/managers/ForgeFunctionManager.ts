@@ -6,6 +6,7 @@ import { FunctionManager, RecursiveArray } from "./FunctionManager"
 
 export class ForgeFunctionManager {
     private readonly functions = new Map<string, ForgeFunction>()
+    private readonly paths = new Array<string>()
 
     public constructor(private readonly client: ForgeClient) {}
 
@@ -45,5 +46,13 @@ export class ForgeFunctionManager {
             loader.push(req)
         }
         this.add(loader)
+    }
+
+    public refresh() {
+        this.functions.clear()
+        for (const path of this.paths) {
+            this.load(path)
+        }
+        this.populate()
     }
 }
