@@ -34,6 +34,11 @@ export class ForgeFunctionManager {
         return this.functions.get(name)
     }
 
+    public refresh(path: string) {
+        this.functions.clear()
+        this.load(path)
+    }
+
     public load(path: string) {
         const loader = new Array<IForgeFunction | ForgeFunction>()
         for (const file of recursiveReaddirSync(path).filter((x) => x.endsWith(".js"))) {
@@ -45,21 +50,5 @@ export class ForgeFunctionManager {
             loader.push(req)
         }
         this.add(loader)
-    }
-
-    public refresh(paths: string[]) {
-        this.functions.clear()
-        for (const path of paths) {
-            const loader = new Array<IForgeFunction | ForgeFunction>()
-            for (const file of recursiveReaddirSync(path).filter((x) => x.endsWith(".js"))) {
-                const data = require(file)
-                if (Object.keys(data).length === 0)
-                    continue
-
-                const req = (data.default ?? data) as ForgeFunction | IForgeFunction
-                loader.push(req)
-            }
-            this.add(loader)
-        }
     }
 }

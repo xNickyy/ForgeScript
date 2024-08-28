@@ -34,6 +34,10 @@ class ForgeFunctionManager {
     get(name) {
         return this.functions.get(name);
     }
+    refresh(path) {
+        this.functions.clear();
+        this.load(path);
+    }
     load(path) {
         const loader = new Array();
         for (const file of (0, recursiveReaddirSync_1.default)(path).filter((x) => x.endsWith(".js"))) {
@@ -44,20 +48,6 @@ class ForgeFunctionManager {
             loader.push(req);
         }
         this.add(loader);
-    }
-    refresh(paths) {
-        this.functions.clear();
-        for (const path of paths) {
-            const loader = new Array();
-            for (const file of (0, recursiveReaddirSync_1.default)(path).filter((x) => x.endsWith(".js"))) {
-                const data = require(file);
-                if (Object.keys(data).length === 0)
-                    continue;
-                const req = (data.default ?? data);
-                loader.push(req);
-            }
-            this.add(loader);
-        }
     }
 }
 exports.ForgeFunctionManager = ForgeFunctionManager;
