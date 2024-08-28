@@ -6,7 +6,6 @@ import { FunctionManager, RecursiveArray } from "./FunctionManager"
 
 export class ForgeFunctionManager {
     private readonly functions = new Map<string, ForgeFunction>()
-    private readonly paths = new Array<string>()
 
     public constructor(private readonly client: ForgeClient) {}
 
@@ -48,11 +47,19 @@ export class ForgeFunctionManager {
         this.add(loader)
     }
 
-    public refresh() {
+    public refresh(paths: string[]) {
         this.functions.clear()
-        for (const path of this.paths) {
-            this.load(path)
+        for (const path of paths) {
+            const loader = new Array<IForgeFunction | ForgeFunction>()
+            for (const file of recursiveReaddirSync(path).filter((x) => x.endsWith(".js"))) {
+                const data = require(file)
+                if (Object.keys(data).length === 0)
+                    continue
+
+                const req = (data.default ?? data) as ForgeFunction | IForgeFunction
+                loader.push(req)
+            }
+            this.add(loader)
         }
-        this.populate()
     }
 }

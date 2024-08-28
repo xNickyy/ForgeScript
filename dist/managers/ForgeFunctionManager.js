@@ -10,7 +10,6 @@ const FunctionManager_1 = require("./FunctionManager");
 class ForgeFunctionManager {
     client;
     functions = new Map();
-    paths = new Array();
     constructor(client) {
         this.client = client;
     }
@@ -46,12 +45,19 @@ class ForgeFunctionManager {
         }
         this.add(loader);
     }
-    refresh() {
+    refresh(paths) {
         this.functions.clear();
-        for (const path of this.paths) {
-            this.load(path);
+        for (const path of paths) {
+            const loader = new Array();
+            for (const file of (0, recursiveReaddirSync_1.default)(path).filter((x) => x.endsWith(".js"))) {
+                const data = require(file);
+                if (Object.keys(data).length === 0)
+                    continue;
+                const req = (data.default ?? data);
+                loader.push(req);
+            }
+            this.add(loader);
         }
-        this.populate();
     }
 }
 exports.ForgeFunctionManager = ForgeFunctionManager;
