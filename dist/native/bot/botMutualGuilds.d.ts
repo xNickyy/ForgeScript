@@ -12,4 +12,4 @@ declare const _default: NativeFunction<[{
     type: ArgType.String;
 }], true>;
 export default _default;
-//# sourceMappingURL=botMutalGuilds.d.ts.map
+//# sourceMappingURL=botMutualGuilds.d.ts.map

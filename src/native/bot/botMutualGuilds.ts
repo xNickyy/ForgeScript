@@ -1,15 +1,15 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
 export default new NativeFunction({
-    name: "$botMutalGuilds",
+    name: "$botMutualGuilds",
     version: "1.5.0",
-    aliases: ["$clientMutalGuilds"],
-    description: "Returns the client's mutal guilds with a user",
+    aliases: ["$clientMutualGuilds"],
+    description: "Returns the client's mutual guilds with a user",
     unwrap: true,
     args: [
         {
             name: "user ID",
-            description: "The user to get mutal guilds from",
+            description: "The user to get mutual guilds from",
             rest: false,
             required: true,
             type: ArgType.User,
