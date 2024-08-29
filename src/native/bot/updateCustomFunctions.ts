@@ -7,7 +7,7 @@ export default new NativeFunction({
     description: "Updates custom bot functions, also registers new ones",
     unwrap: false,
     execute(ctx) {
-        ctx.client.functions.refresh()
+        ctx.client.functions.load
         return this.success()
     },
 })

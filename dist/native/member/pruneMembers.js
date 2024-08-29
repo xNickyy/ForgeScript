@@ -4,7 +4,10 @@ const structures_1 = require("../../structures");
 exports.default = new structures_1.NativeFunction({
     name: "$pruneMembers",
     version: "1.5.0",
-    aliases: ["$prune"],
+    aliases: [
+        "$prune",
+        "$membersPrune"
+    ],
     description: "Prunes inactive members from the guild, returns number of kicked members",
     unwrap: true,
     brackets: true,
@@ -46,8 +49,8 @@ exports.default = new structures_1.NativeFunction({
         return this.success((await guild.members
             .prune({
             count: true,
-            days: days || undefined,
-            dry: dry || undefined,
+            days: days || 7,
+            dry: dry || false,
             roles: roles,
             reason: reason || undefined,
         }).catch(ctx.noop)));

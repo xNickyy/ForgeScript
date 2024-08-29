@@ -9,7 +9,6 @@ export declare class ForgeFunctionManager {
     resolve(s: IForgeFunction | ForgeFunction): ForgeFunction;
     populate(): void;
     get(name: string): ForgeFunction | undefined;
-    refresh(path: string): void;
     load(path: string): void;
 }
 //# sourceMappingURL=ForgeFunctionManager.d.ts.map

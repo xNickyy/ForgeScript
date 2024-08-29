@@ -34,11 +34,6 @@ export class ForgeFunctionManager {
         return this.functions.get(name)
     }
 
-    public refresh(path: string) {
-        this.functions.clear()
-        this.load(path)
-    }
-
     public load(path: string) {
         const loader = new Array<IForgeFunction | ForgeFunction>()
         for (const file of recursiveReaddirSync(path).filter((x) => x.endsWith(".js"))) {
