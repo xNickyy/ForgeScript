@@ -8,7 +8,7 @@ exports.default = new structures_1.NativeFunction({
     unwrap: false,
     output: structures_1.ArgType.Boolean,
     execute(ctx) {
-        return this.success(ctx.interaction?.isChatInputCommand() && ctx.interaction.commandType === 1 || 2);
+        return this.success(ctx.interaction?.isChatInputCommand() && (ctx.interaction.commandType < 3));
     },
 });
 //# sourceMappingURL=isSlashSubCommand.js.map
