@@ -7,6 +7,6 @@ export default new NativeFunction({
     unwrap: false,
     output: ArgType.Boolean,
     execute(ctx) {
-        return this.success(ctx.interaction?.isChatInputCommand() && (ctx.interaction.commandType < 3))
+        return this.success(Boolean(ctx.interaction?.isChatInputCommand() && (ctx.interaction.commandType < 3)))
     },
 })
