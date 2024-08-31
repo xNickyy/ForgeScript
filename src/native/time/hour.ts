@@ -1,6 +1,6 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
-export enum HourType {
+export enum HourFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -17,12 +17,12 @@ export default new NativeFunction({
             description: "The format of the hour",
             rest: false,
             type: ArgType.Enum,
-            enum: HourType
+            enum: HourFormatType
         }
     ],
     output: ArgType.Number,
     execute: async function(ctx, [format]) {
         const hour = new Date().toLocaleString("en-US", { hour: format || "numeric", hour12: false, timeZone: ctx.timezone, calendar: ctx.calendar })
-        return this.success(format === HourType.Numeric ? parseInt(hour, 10) : hour)
+        return this.success(format === HourFormatType.Numeric ? parseInt(hour, 10).toString() : hour)
     }
 })

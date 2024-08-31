@@ -1,5 +1,5 @@
 import { ArgType, NativeFunction } from "../../structures";
-export declare enum HourType {
+export declare enum HourFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -8,7 +8,7 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Enum;
-    enum: typeof HourType;
+    enum: typeof HourFormatType;
 }], true>;
 export default _default;
 //# sourceMappingURL=hour.d.ts.map

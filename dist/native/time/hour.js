@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HourType = void 0;
+exports.HourFormatType = void 0;
 const structures_1 = require("../../structures");
-var HourType;
-(function (HourType) {
-    HourType["Numeric"] = "numeric";
-    HourType["TwoDigit"] = "2-digit";
-})(HourType || (exports.HourType = HourType = {}));
+var HourFormatType;
+(function (HourFormatType) {
+    HourFormatType["Numeric"] = "numeric";
+    HourFormatType["TwoDigit"] = "2-digit";
+})(HourFormatType || (exports.HourFormatType = HourFormatType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$hour",
     version: "1.2.0",
@@ -19,13 +19,13 @@ exports.default = new structures_1.NativeFunction({
             description: "The format of the hour",
             rest: false,
             type: structures_1.ArgType.Enum,
-            enum: HourType
+            enum: HourFormatType
         }
     ],
     output: structures_1.ArgType.Number,
     execute: async function (ctx, [format]) {
         const hour = new Date().toLocaleString("en-US", { hour: format || "numeric", hour12: false, timeZone: ctx.timezone, calendar: ctx.calendar });
-        return this.success(format === HourType.Numeric ? parseInt(hour, 10) : hour);
+        return this.success(format === HourFormatType.Numeric ? parseInt(hour, 10).toString() : hour);
     }
 });
 //# sourceMappingURL=hour.js.map
