@@ -1,6 +1,6 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
-export enum MinuteType {
+export enum MinuteFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -17,7 +17,7 @@ export default new NativeFunction({
             description: "The format of the minute",
             rest: false,
             type: ArgType.Enum,
-            enum: MinuteType
+            enum: MinuteFormatType
         }
     ],
     output: ArgType.Number,

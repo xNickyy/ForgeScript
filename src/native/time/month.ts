@@ -1,6 +1,6 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
-export enum MonthType {
+export enum MonthFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit",
     Long = "long",
@@ -20,7 +20,7 @@ export default new NativeFunction({
             description: "The format of the month",
             rest: false,
             type: ArgType.Enum,
-            enum: MonthType
+            enum: MonthFormatType
         }
     ],
     output: ArgType.Unknown,

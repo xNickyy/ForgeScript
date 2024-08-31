@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SecondType = void 0;
+exports.SecondFormatType = void 0;
 const structures_1 = require("../../structures");
-var SecondType;
-(function (SecondType) {
-    SecondType["Numeric"] = "numeric";
-    SecondType["TwoDigit"] = "2-digit";
-})(SecondType || (exports.SecondType = SecondType = {}));
+var SecondFormatType;
+(function (SecondFormatType) {
+    SecondFormatType["Numeric"] = "numeric";
+    SecondFormatType["TwoDigit"] = "2-digit";
+})(SecondFormatType || (exports.SecondFormatType = SecondFormatType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$second",
     version: "1.2.0",
@@ -19,7 +19,7 @@ exports.default = new structures_1.NativeFunction({
             description: "The format of the second",
             rest: false,
             type: structures_1.ArgType.Enum,
-            enum: SecondType
+            enum: SecondFormatType
         }
     ],
     output: structures_1.ArgType.Number,

@@ -1,6 +1,6 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
-export enum YearType {
+export enum YearFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -17,7 +17,7 @@ export default new NativeFunction({
             description: "The format of the year",
             rest: false,
             type: ArgType.Enum,
-            enum: YearType
+            enum: YearFormatType
         }
     ],
     output: ArgType.Number,

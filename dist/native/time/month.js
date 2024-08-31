@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MonthType = void 0;
+exports.MonthFormatType = void 0;
 const structures_1 = require("../../structures");
-var MonthType;
-(function (MonthType) {
-    MonthType["Numeric"] = "numeric";
-    MonthType["TwoDigit"] = "2-digit";
-    MonthType["Long"] = "long";
-    MonthType["Short"] = "short";
-    MonthType["Narrow"] = "narrow";
-})(MonthType || (exports.MonthType = MonthType = {}));
+var MonthFormatType;
+(function (MonthFormatType) {
+    MonthFormatType["Numeric"] = "numeric";
+    MonthFormatType["TwoDigit"] = "2-digit";
+    MonthFormatType["Long"] = "long";
+    MonthFormatType["Short"] = "short";
+    MonthFormatType["Narrow"] = "narrow";
+})(MonthFormatType || (exports.MonthFormatType = MonthFormatType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$month",
     version: "1.2.0",
@@ -22,7 +22,7 @@ exports.default = new structures_1.NativeFunction({
             description: "The format of the month",
             rest: false,
             type: structures_1.ArgType.Enum,
-            enum: MonthType
+            enum: MonthFormatType
         }
     ],
     output: structures_1.ArgType.Unknown,

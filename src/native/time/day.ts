@@ -1,7 +1,7 @@
 import { includes } from "lodash"
 import { ArgType, NativeFunction, Return } from "../../structures"
 
-export enum DayType {
+export enum DayFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit",
     Long = "long",
@@ -21,7 +21,7 @@ export default new NativeFunction({
             description: "The format of the day",
             rest: false,
             type: ArgType.Enum,
-            enum: DayType
+            enum: DayFormatType
         }
     ],
     output: ArgType.Number,

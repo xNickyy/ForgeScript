@@ -1,5 +1,5 @@
 import { ArgType, NativeFunction } from "../../structures";
-export declare enum DayType {
+export declare enum DayFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit",
     Long = "long",
@@ -11,7 +11,7 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Enum;
-    enum: typeof DayType;
+    enum: typeof DayFormatType;
 }], true>;
 export default _default;
 //# sourceMappingURL=day.d.ts.map

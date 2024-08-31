@@ -1,5 +1,5 @@
 import { ArgType, NativeFunction } from "../../structures";
-export declare enum MonthType {
+export declare enum MonthFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit",
     Long = "long",
@@ -11,7 +11,7 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Enum;
-    enum: typeof MonthType;
+    enum: typeof MonthFormatType;
 }], true>;
 export default _default;
 //# sourceMappingURL=month.d.ts.map

@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DayType = void 0;
+exports.DayFormatType = void 0;
 const structures_1 = require("../../structures");
-var DayType;
-(function (DayType) {
-    DayType["Numeric"] = "numeric";
-    DayType["TwoDigit"] = "2-digit";
-    DayType["Long"] = "long";
-    DayType["Short"] = "short";
-    DayType["Narrow"] = "narrow";
-})(DayType || (exports.DayType = DayType = {}));
+var DayFormatType;
+(function (DayFormatType) {
+    DayFormatType["Numeric"] = "numeric";
+    DayFormatType["TwoDigit"] = "2-digit";
+    DayFormatType["Long"] = "long";
+    DayFormatType["Short"] = "short";
+    DayFormatType["Narrow"] = "narrow";
+})(DayFormatType || (exports.DayFormatType = DayFormatType = {}));
 exports.default = new structures_1.NativeFunction({
     name: "$day",
     version: "1.2.0",
@@ -22,7 +22,7 @@ exports.default = new structures_1.NativeFunction({
             description: "The format of the day",
             rest: false,
             type: structures_1.ArgType.Enum,
-            enum: DayType
+            enum: DayFormatType
         }
     ],
     output: structures_1.ArgType.Number,

@@ -1,6 +1,6 @@
 import { ArgType, NativeFunction, Return } from "../../structures"
 
-export enum SecondType {
+export enum SecondFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -17,7 +17,7 @@ export default new NativeFunction({
             description: "The format of the second",
             rest: false,
             type: ArgType.Enum,
-            enum: SecondType
+            enum: SecondFormatType
         }
     ],
     output: ArgType.Number,

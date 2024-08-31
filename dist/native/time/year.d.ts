@@ -1,5 +1,5 @@
 import { ArgType, NativeFunction } from "../../structures";
-export declare enum YearType {
+export declare enum YearFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -8,7 +8,7 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Enum;
-    enum: typeof YearType;
+    enum: typeof YearFormatType;
 }], true>;
 export default _default;
 //# sourceMappingURL=year.d.ts.map

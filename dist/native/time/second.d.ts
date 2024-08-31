@@ -1,5 +1,5 @@
 import { ArgType, NativeFunction } from "../../structures";
-export declare enum SecondType {
+export declare enum SecondFormatType {
     Numeric = "numeric",
     TwoDigit = "2-digit"
 }
@@ -8,7 +8,7 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Enum;
-    enum: typeof SecondType;
+    enum: typeof SecondFormatType;
 }], true>;
 export default _default;
 //# sourceMappingURL=second.d.ts.map
